@@ -21,7 +21,6 @@ func init() {
 type Game struct {
 	state      int
 	Keys       [1024]bool
-	vsync      bool
 	fullscreen bool
 	window     *eng.OpenGlWindow
 	gui        *Gui
@@ -33,11 +32,6 @@ type Game struct {
 	ParticleGenerator *eng.ParticleGenerator
 	SpriteRenderer    *eng.SpriteRenderer
 	TextRenderer      *eng.TextRenderer
-
-	chaseBananaMode bool
-	randomBombMode  bool
-
-	level string
 }
 
 const (
@@ -52,7 +46,6 @@ const (
 )
 
 func (g *Game) New(openGlWindow *eng.OpenGlWindow) {
-	g.vsync = true
 	g.window = openGlWindow
 	g.gui = NewGui(g)
 	g.Keys = [1024]bool{}

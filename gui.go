@@ -15,12 +15,15 @@ type Gui struct {
 	gl3  *gui.OpenGL3
 
 	game *Game
+
+	vsync bool
 }
 
 func NewGui(game *Game) *Gui {
 	g := &Gui{
 		Context: imgui.CreateContext(nil),
 		game:    game,
+		vsync:   true,
 	}
 	io := imgui.CurrentIO()
 
@@ -77,10 +80,8 @@ func (gui *Gui) Render() {
 			gui.game.reset()
 		}
 
-		imgui.Checkbox("Chase Banana", &gui.game.chaseBananaMode)
-		imgui.Checkbox("Random Bombs", &gui.game.randomBombMode)
-		if imgui.Checkbox("Vsync", &gui.game.vsync) {
-			if gui.game.vsync {
+		if imgui.Checkbox("Vsync", &gui.vsync) {
+			if gui.vsync {
 				glfw.SwapInterval(1)
 			} else {
 				glfw.SwapInterval(0)
