@@ -103,7 +103,11 @@ func (g *Game) Render(alpha float64) {
 		log.Printf("update viewport %#v\n", g.window)
 	}
 
-	g.SpriteRenderer.DrawSprite(g.Texture("background"), mgl32.Vec2{worldWidth / 2, worldHeight / 2}, mgl32.Vec2{worldWidth, worldHeight}, 0, eng.White)
+	g.SpriteRenderer.DrawSprite(
+		g.Texture("background"),
+		mgl32.Vec2{worldWidth / 2, worldHeight / 2},
+		mgl32.Vec2{worldWidth, worldHeight}, 0, eng.White,
+	)
 
 	g.gui.Render()
 }

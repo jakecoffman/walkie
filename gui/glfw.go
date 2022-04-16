@@ -8,11 +8,8 @@ import (
 )
 
 type GLFW struct {
-	imguiIO imgui.IO
-
-	window *glfw.Window
-
-	time             float64
+	imguiIO          imgui.IO
+	window           *glfw.Window
 	mouseJustPressed [3]bool
 }
 
